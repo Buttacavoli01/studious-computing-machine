@@ -114,7 +114,7 @@ gulp.task('serve', gulp.series('styles', function() {
 gulp.task('imgMin', function() {
   return gulp.src(paths.images.src)
     .pipe(imagemin())
-    .pipe(gulp.dest(paths.images.dest));
+    .pipe(gulp.dest("app/"));
 });
 
 gulp.task('run', gulp.series('clean',
