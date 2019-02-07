@@ -88,6 +88,7 @@ gulp.task('scripts', function() {
 
 gulp.task('styles', function(done) {
   return gulp.src(paths.styles.src)
+    //.pipe(less())
     .pipe(sass().on('error', sass.logError))
     .pipe(prefix())
     .pipe(concat('main.min.css'))
