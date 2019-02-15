@@ -11,11 +11,11 @@ const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug');
 const paths = {
   styles: {
-    src: 'app/src/styles/**/*.sass',
+    src: 'app/src/styles/*.sass',
     dest: 'app/dist/styles/'
   },
   scripts: {
-    src: 'app/src/scripts/**/*.js',
+    src: 'app/src/scripts/*.js',
     dest: 'app/dist/scripts/'
   },
   images: {
@@ -62,7 +62,7 @@ gulp.task('mkdir' , function() {
     .pipe(gulp.dest('app/src/views'))
     .pipe(gulp.dest('app/vendor'))
     .pipe(gulp.dest('app/vendor/scripts'))
-    .pipe(gulp.dest('app/vendor/styles'))
+    .pipe(gulp.dest('app/vendor/styles'));
 });
 
 gulp.task('clean', function() {
@@ -76,7 +76,7 @@ gulp.task('views', function() {
       filename: 'index.html'
       //,pretty: true
     }))
-    .pipe(gulp.dest(paths.views.dest));
+    .pipe(gulp.dest('app/'));
 });
 
 gulp.task('scripts', function() {
@@ -88,7 +88,7 @@ gulp.task('scripts', function() {
 
 gulp.task('styles', function(done) {
   return gulp.src(paths.styles.src)
-    //.pipe(less())
+
     .pipe(sass().on('error', sass.logError))
     .pipe(prefix())
     .pipe(concat('main.min.css'))
@@ -115,7 +115,7 @@ gulp.task('serve', gulp.series('styles', function() {
 gulp.task('imgMin', function() {
   return gulp.src(paths.images.src)
     .pipe(imagemin())
-    .pipe(gulp.dest("app/"));
+    .pipe(gulp.dest(paths.images.dest));
 });
 
 gulp.task('run', gulp.series('clean',
