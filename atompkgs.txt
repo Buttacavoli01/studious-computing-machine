@@ -1,0 +1,17 @@
+atom-beautify
+busy-signal
+emmet
+file-icons
+git-plus
+highlight-selected
+intentions
+language-pug
+linter
+linter-csslint
+linter-htmlhint
+linter-jshint
+linter-pug
+linter-sass-linter
+linter-ui-default
+pigments
+teletype? maybe
